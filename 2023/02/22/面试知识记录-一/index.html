@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>面试知识记录(一) | CXAICOM</title><meta name="author" content="cxaicom"><meta name="copyright" content="cxaicom"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="js继承: https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6844903696111763470 call、bind、apply均将this指向更改为arguments[0]，其他参数传递给绑定函数的参数 call,apply直接调用函数，区别是apply除第1个参数外的其他参数需要用[]bind返回一个函数，通过函数名()调用    https:&#x2F;&#x2F;www.bilibili.com&#x2F;video">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试知识记录(一)">
+<meta property="og:url" content="http://example.com/2023/02/22/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95-%E4%B8%80/index.html">
+<meta property="og:site_name" content="CXAICOM">
+<meta property="og:description" content="js继承: https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6844903696111763470 call、bind、apply均将this指向更改为arguments[0]，其他参数传递给绑定函数的参数 call,apply直接调用函数，区别是apply除第1个参数外的其他参数需要用[]bind返回一个函数，通过函数名()调用    https:&#x2F;&#x2F;www.bilibili.com&#x2F;video">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/10/27/m9tLMngEiUThu5I.jpg">
+<meta property="article:published_time" content="2023-02-22T09:50:32.000Z">
+<meta property="article:modified_time" content="2023-03-04T09:59:38.826Z">
+<meta property="article:author" content="cxaicom">
+<meta property="article:tag" content="work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/10/27/m9tLMngEiUThu5I.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/22/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95-%E4%B8%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面试知识记录(一)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-03-04 17:59:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><style>css-doodle {--color: @p(#51eaea, #fffde1, #ff9d76, #FB3569);--rule: (:doodle {@grid: 30x1 / 18vmin;--deg: @p(-180deg, 180deg);}:container {perspective: 30vmin;}:after, :before {content: '';background: var(--color); @place-cell: @r(100%) @r(100%); @size: @r(6px); @shape: heart;} @place-cell: center; @size: 100%;box-shadow: @m2(0 0 50px var(--color));background: @m100(radial-gradient(var(--color) 50%, transparent 0)@r(-20%, 120%) @r(-20%, 100%) / 1px 1px no-repeat); will-change: transform, opacity; animation: scale-up 12s linear infinite; animation-delay: calc(-12s / @I * @i); @keyframes scale-up { 0%, 95.01%, 100% {transform: translateZ(0) rotate(0);opacity: 0;}10% {opacity: 1;}95% {transform: translateZ(35vmin) rotateZ(@var(--deg));}})}</style><css-doodle use="var(--rule)"></css-doodle><script async="async" src="https://npm.elemecdn.com/css-doodle@0.15.3/css-doodle.min.js"></script></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/10/28/48UBwnKRHuz93f1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/11/17/esdR7GSNzhIEQBP.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CXAICOM</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">面试知识记录(一)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-22T09:50:32.000Z" title="发表于 2023-02-22 17:50:32">2023-02-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-04T09:59:38.826Z" title="更新于 2023-03-04 17:59:38">2023-03-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="面试知识记录(一)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ol>
+<li>js继承: <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903696111763470">https://juejin.cn/post/6844903696111763470</a></li>
+<li><strong>call、bind、apply</strong><br>均将this指向更改为arguments[0]，其他参数传递给绑定函数的参数<blockquote>
+<p>call,apply直接调用函数，区别是apply除第1个参数外的其他参数需要用[]<br>bind返回一个函数，通过<code>函数名()</code>调用</p>
+</blockquote>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XX4y1w7R6/?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1XX4y1w7R6/?spm_id_from=333.337.search-card.all.click</a></p>
+<ol>
+<li>手写bind:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">bind</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> fn=<span class="variable language_">this</span>,</span><br><span class="line">    _this=<span class="variable language_">arguments</span>[<span class="number">0</span>],</span><br><span class="line">    args=<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> fn.<span class="title function_">apply</span>(_this,args.<span class="title function_">concat</span>(<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iN411o7tS/?p=2&amp;spm_id_from=pageDriver&amp;vd_source=e7dafa113bd841d6e031de6bb352c775">https://www.bilibili.com/video/BV1iN411o7tS/?p=2&amp;spm_id_from=pageDriver&amp;vd_source=e7dafa113bd841d6e031de6bb352c775</a></li>
+</ol>
+<p>手写call<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">call</span>(<span class="params">obj,...args</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj===<span class="literal">null</span>||obj===<span class="literal">undefined</span>)&#123;</span><br><span class="line">        obj=globalThis;</span><br><span class="line">    &#125;</span><br><span class="line">    obj.<span class="property">temp</span>=<span class="variable language_">this</span>;</span><br><span class="line">    <span class="keyword">const</span> result=obj.<span class="title function_">temp</span>(...args);</span><br><span class="line">    <span class="keyword">delete</span> obj.<span class="property">temp</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>手写apply<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">apply</span>=<span class="keyword">function</span>(<span class="params">obj,args</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj===<span class="literal">null</span>||obj===<span class="literal">undefined</span>)&#123;</span><br><span class="line">        obj=globalThis;</span><br><span class="line">    &#125;</span><br><span class="line">    obj.<span class="property">temp</span>=<span class="variable language_">this</span>;</span><br><span class="line">    <span class="keyword">const</span> result=obj.<span class="title function_">temp</span>(...args);</span><br><span class="line">    <span class="keyword">delete</span> obj.<span class="property">temp</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>闭包：函数嵌套函数，内部函数就是闭包<blockquote>
+<p>内部函数没有执行完成，外部函数不会被销毁</p>
+</blockquote>
+</li>
+<li>map和forEach区别：都可以遍历数组，map()方法通过旧数组映射出一个新数组，返回一个新数组；forEach方法无返回值</li>
+<li>ES6新特性：<blockquote>
+<p>新增let和const；<br>模板字符串,用反引号 eg:`${a}`<br>解构赋值 eg:<code>let [a,b,c] = [1,2,3];</code><br>箭头函数<br>数组方法  <code>let arr=Array.of(1,&#39;2&#39;,[3])</code>创建数组<br>展开运算符<br>promise方法，异步编程的一种方案<br>新的数据类型symbol,表示独一无二的值; eg:<code>var a=Symbol(&#39;test&#39;)</code></p>
+</blockquote>
+</li>
+<li><p>防抖：用户触发时间过于频繁，只要最后一次事件的操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">&quot;text&quot;</span>&gt;</span><br><span class="line"><span class="keyword">let</span> inp=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> t=<span class="literal">null</span>;</span><br><span class="line">inp.<span class="property">oninput</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(t!==<span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(t)</span><br><span class="line">    &#125;</span><br><span class="line">    t=<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">value</span>);</span><br><span class="line">    &#125;,<span class="number">500</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事件循环机制：<br>1、 主线程读取js代码，形成相应的堆和执行栈<br>2、 当主线程遇到异步操作，将异步操作交给对应的API处理<br>3、 当异步操作完成，推入到任务队列中<br>4、 主线程执行完毕后，查询任务队列，取出已完成任务推入主线程处理<br>5、 重复2，3，4</p>
+</li>
+<li>任务队列分为宏任务和微任务<br>宏任务：script、setTimeout、setInterval、I/O、UI交互、setImmediate<br>微任务：Promise、MutationObserver、process.nextTick</li>
+<li>前端发送请求的方式：fetch、axios、ajax、XMLHttpRequest、request<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/lineuman/article/details/83449776">https://blog.csdn.net/lineuman/article/details/83449776</a></li>
+<li>nodejs发送http请求方式：http、request、needle、axios、SuperAgent、Got、node-fetch<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1735008#:~:text=%E5%9C%A8Node.js%E4%B8%AD%E5%8F%91%E5%87%BAHTTP%E8%AF%B7%E6%B1%82%E7%9A%847%E7%A7%8D%E6%96%B9%E6%B3%95%201%201.HTTP%20%E2%80%94%E6%A0%87%E5%87%86HTTP%E5%BA%93%20HTTP%20%E5%92%8C%20HTTPS%20%E6%A8%A1%E5%9D%97%E9%83%BD%E6%89%93%E5%8C%85%E5%9C%A8%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%AD%E3%80%82,Got%20%E6%98%AFNode.js%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E5%8F%8B%E5%A5%BD%E7%9A%84%E8%BD%BB%E9%87%8F%E7%BA%A7%20HTTP%20%E8%AF%B7%E6%B1%82%E5%BA%93%E3%80%82%20...%207%207.Node-fetch%20">https://cloud.tencent.com/developer/article/1735008#:~:text=%E5%9C%A8Node.js%E4%B8%AD%E5%8F%91%E5%87%BAHTTP%E8%AF%B7%E6%B1%82%E7%9A%847%E7%A7%8D%E6%96%B9%E6%B3%95%201%201.HTTP%20%E2%80%94%E6%A0%87%E5%87%86HTTP%E5%BA%93%20HTTP%20%E5%92%8C%20HTTPS%20%E6%A8%A1%E5%9D%97%E9%83%BD%E6%89%93%E5%8C%85%E5%9C%A8%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%AD%E3%80%82,Got%20%E6%98%AFNode.js%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E5%8F%8B%E5%A5%BD%E7%9A%84%E8%BD%BB%E9%87%8F%E7%BA%A7%20HTTP%20%E8%AF%B7%E6%B1%82%E5%BA%93%E3%80%82%20...%207%207.Node-fetch%20</a></li>
+<li>axios是基于promise实现的对 ajax 技术的一种封装，ajax是对原生XHR的封装<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7033278245810208798">https://juejin.cn/post/7033278245810208798</a></li>
+<li>响应式原理：改变数据时候，视图也会跟着更新<blockquote>
+<p>React是通过this.setState去改变数据，然后根据新的数据重新渲染出虚拟DOM，最后通过对比虚拟DOM找到需要更新的节点进行更新。<br>VUE则是利用了Object.defineProperty的方法里面的setter与getter方法的观察者模式来实现。</p>
+</blockquote>
+</li>
+<li>跨域<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7096487020125650980#">https://juejin.cn/post/7096487020125650980#</a></li>
+<li>伪类和伪元素<blockquote>
+<ol>
+<li>伪类表示被选择元素的某种状态，例如:hover</li>
+</ol>
+</blockquote>
+</li>
+<li><p>伪元素表示的是被选择元素的某个部分，这个部分看起来像一个独立的元素，但是是”假元素”，只存在于css中，所以叫”伪”的元素，例如:before和:after<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6976646049456717838">https://juejin.cn/post/6976646049456717838</a></p>
+</li>
+<li><p>js判断数据类型的方式：<br>1、typeof<br>2、已知对象类型:instanceof<br>3、对象原型链判断：Object.prototype.toString.call()<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Clara_G/article/details/104755965">https://blog.csdn.net/Clara_G/article/details/104755965</a></p>
+</li>
+<li>数组去重<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7048619686497353764">https://juejin.cn/post/7048619686497353764</a></li>
+<li>主流浏览器内核：<br>IE: Trident<br>Safari,Google:Webkit<br>火狐：GECKO<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7ddd1d2f6022">https://www.jianshu.com/p/7ddd1d2f6022</a></li>
+<li>js的全局函数：<br>个人记忆方法：6（编码相关）+ 2（数据处理）+ 4（数字相关）+ 1（特殊）<br>编码相关：<br>escape()、unescape()、encodeURI()、decodeURI()、<br>encodeURIComponent()、decodeURIComponent()<br>数据处理：<br>Number()、String()<br>数字相关：<br>isFinite()、isNaN()、parseFloat()、parseInt()<br>特殊：<br>eval()</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">cxaicom</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/02/22/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95-%E4%B8%80/">http://example.com/2023/02/22/%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95-%E4%B8%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">CXAICOM</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/work/">work</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/10/27/m9tLMngEiUThu5I.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/24/nextjs%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><img class="prev-cover" src="https://s2.loli.net/2022/10/27/vYVxIwNpJeiZTuX.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">nextjs学习记录</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/17/leetcode%E7%BB%83%E4%B9%A0-%E4%B8%80/"><img class="next-cover" src="https://s2.loli.net/2022/11/17/9pu8XHlc2rgwaC3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">leetcode练习(一)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/07/%E7%AC%94%E8%AF%95%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" title="笔试知识记录"><img class="cover" src="https://s2.loli.net/2022/10/27/m9tLMngEiUThu5I.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">笔试知识记录</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2022/10/28/48UBwnKRHuz93f1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">cxaicom</div><div class="author-info__description">Never say never</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/cxaicom"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/03/03/css%E5%B8%83%E5%B1%80/" title="css布局"><img src="https://s2.loli.net/2022/10/27/vYVxIwNpJeiZTuX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="css布局"/></a><div class="content"><a class="title" href="/2023/03/03/css%E5%B8%83%E5%B1%80/" title="css布局">css布局</a><time datetime="2023-03-03T03:03:53.000Z" title="发表于 2023-03-03 11:03:53">2023-03-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/28/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E4%B8%80/" title="面试经验(一)"><img src="https://s2.loli.net/2022/10/27/vYVxIwNpJeiZTuX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试经验(一)"/></a><div class="content"><a class="title" href="/2023/02/28/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E4%B8%80/" title="面试经验(一)">面试经验(一)</a><time datetime="2023-02-28T12:52:44.000Z" title="发表于 2023-02-28 20:52:44">2023-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/28/Vue%E7%9A%84%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" title="Vue的知识整理"><img src="https://s2.loli.net/2022/10/27/vYVxIwNpJeiZTuX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue的知识整理"/></a><div class="content"><a class="title" href="/2023/02/28/Vue%E7%9A%84%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" title="Vue的知识整理">Vue的知识整理</a><time datetime="2023-02-28T02:43:02.000Z" title="发表于 2023-02-28 10:43:02">2023-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/28/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" title="防抖和节流"><img src="https://s2.loli.net/2022/10/27/vYVxIwNpJeiZTuX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="防抖和节流"/></a><div class="content"><a class="title" href="/2023/02/28/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" title="防抖和节流">防抖和节流</a><time datetime="2023-02-28T01:31:18.000Z" title="发表于 2023-02-28 09:31:18">2023-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/28/Promise%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8/" title="Promise的学习和使用"><img src="https://s2.loli.net/2022/10/27/vYVxIwNpJeiZTuX.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Promise的学习和使用"/></a><div class="content"><a class="title" href="/2023/02/28/Promise%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8/" title="Promise的学习和使用">Promise的学习和使用</a><time datetime="2023-02-27T16:59:39.000Z" title="发表于 2023-02-28 00:59:39">2023-02-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By cxaicom</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();}, 5000);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script></div></body></html>
